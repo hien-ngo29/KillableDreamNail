@@ -53,7 +53,7 @@ namespace SerratedDreams
             {
                 HitInstance hitInstance = new()
                 {
-                    DamageDealt = PlayerData.instance.dreamNailUpgraded ? 120 : 60,
+                    DamageDealt = GetDreamNailDamage(),
                     Multiplier = 1,
                     AttackType = AttackTypes.Nail,
                     Direction = HeroController.instance.transform.localScale.x,
@@ -64,6 +64,14 @@ namespace SerratedDreams
                 var enemyHp = self.gameObject.GetComponent<HealthManager>();
                 enemyHp.Hit(hitInstance);
             }
+        }
+
+        private int GetDreamNailDamage()
+        {
+            int DreamNailDamage = PlayerData.instance.dreamOrbs / (200 / (PlayerData.instance.dreamNailUpgraded ? 2 : 1));
+            if (DreamNailDamage < 10)
+                return 10;
+            return DreamNailDamage;
         }
 
         public Settings OnSaveLocal()
