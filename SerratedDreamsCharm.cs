@@ -7,7 +7,7 @@ namespace SerratedDreams
 {
     public class SerratedDreamCharm : EasyCharm
     {
-        protected override int GetCharmCost() => 1;
+        protected override int GetCharmCost() => 0;
         protected override string GetDescription() => "This charm alllows the bearer to deal damage with Dream nail.";
         protected override string GetName() => "Serrated Dreams";
         protected override Sprite GetSpriteInternal()
